@@ -1,0 +1,71 @@
+{% extends 'components/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}"> 
+  <title>  {% block title %}Uquery-- Search friends {% endblock title %} </title>
+</head>
+<body class="bg-primary" style="overflow: hidden;">
+ 
+{% include "components/nav_bar.html" %}
+
+<div class=" vertical-center">
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form>
+                <fieldset>
+                  <!-- <legend>WHAT ARE YOU LOOKING FOR?</legend> -->
+                  <div class="inner-form">
+                    <div class="input-field">
+                      <input class="form-control rounded-pill" id="choices-text-preset-values" type="text" placeholder="I want to chat with..." />
+                      <button class="btn-search" type="button">
+                        <span class="text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                        </svg></span>
+                      </button>
+                    </div>
+                  </div>
+                  
+                </fieldset>
+              </form>
+
+        </div>
+        <div class="col-md-3"><!-- col md 3 ends -->
+        {% for user in users %}
+        <div class="media">
+         <figure class="image is-64x64">
+          {% if user.profile.picture %}
+            <img src="{{ user.profile.picture.url }}" alt="Placeholder image">
+          {% else %}
+            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          {% endif %}
+      </figure>
+          <div class="media-body">
+            <span class="mt-0">{{ user.profile.first_name }} {{ user.profile.last_name }}</span> <span> @{{ user.username }}</span>
+             <a href="{% url 'newconversation' user.username %}" class="btn btn-light">Send a message!</a>
+          </div>
+        </div>
+        {% endfor %}
+        </div><!-- col md 3 ends -->
+    </div>
+</div>
+</div>
+
+
+
+
+  <!-- navbar ends -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+</body>
+</html>

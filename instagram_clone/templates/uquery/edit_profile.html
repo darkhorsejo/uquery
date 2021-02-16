@@ -1,0 +1,108 @@
+{% extends 'components/base.html' %}
+{% load static %}
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
+{% block title %}Uquery-- Ask Question {% endblock title %}
+
+{% block content %}
+
+<style>
+input {
+    width: 100%;
+    /*border-radius: 25px;*/
+}
+
+textarea {
+    width: 100%;
+    /*border-radius: 25px;*/
+}
+.form-control {
+    border-radius: 5px;
+}
+</style>
+
+<div class="col-md-3"></div>
+
+<div class="col-md-6 mx-auto">
+<div class="m-4"></div>
+<div class="card p-3">
+    <form method="POST" action="" enctype="multipart/form-data" role="form">
+        {% csrf_token %}
+        <fieldset class="p-3">
+            <legend class="border-bottom mb-4">Update Profile</legend>
+            
+            <div class="mb-3">
+             <label class="label is-medium">Profile image</label>
+             {{ form.picture }}
+            </div>
+
+            <div class="mb-3">
+            <label class="label is-medium">First name*</label>
+            <p>{{ form.first_name }}</p>
+            </div>
+
+            <div class="mb-3">
+            <label class="label is-medium">Last name*</label>
+            <p> {{ form.last_name }}</p>
+            </div>
+
+            <div class="mb-3 form-group">
+           <label class="label is-medium">Location</label>
+            <p class=""> {{ form.location }}</p>
+            </div>
+
+             <div class="mb-3 form-group">
+           <label class="label is-medium">Workplace</label>
+            <p class=""> {{ form.work_at }}</p>
+            </div>
+
+             <div class="mb-3 form-group">
+           <label class="label is-medium">Position</label>
+            <p class=""> {{ form.position_at_work }}</p>
+            </div>
+
+             <div class="mb-3 form-group">
+           <label class="label is-medium">Previous place of work</label>
+            <p class=""> {{ form.previous_work }}</p>
+            </div>
+
+
+               <div class="mb-3 form-group">
+           <label class="label is-medium">Tertiary Inst</label>
+            <p class=""> {{ form.schooled_at }}</p>
+            </div>
+
+             <div class="mb-3 form-group">
+           <label class="label is-medium">Course of study</label>
+            <p class=""> {{ form.read }}</p>
+            </div>
+
+              <div class="mb-3 form-group">
+           <label class="label is-medium">Name of High School</label>
+            <p class=""> {{ form.high_school }}</p>
+            </div>
+            
+             <div class="mb-3 form-group">
+           <label class="label is-medium">URL</label>
+            <p class=""> {{ form.url }}</p>
+            </div>
+
+              <div class="mb-3 form-group">
+           <label class="label is-medium">Bio</label>
+            <p class=""> {{ form.profile_info }}</p>
+            </div>
+                <!-- -->
+            <div class="row">
+        <div class="col-md-12">
+          <span style="color: red; font-weight: 400;">{{ form.errors }}</span>
+        </div>
+      </div>
+             <!-- -->
+        </fieldset>
+        <div class="form-group p-3">
+            <button class="btn btn-primary shadow">Update profile</button>
+        </div>
+    </form>
+</div>
+</div>
+<div class="col-md-3"></div>
+ {% endblock content %}

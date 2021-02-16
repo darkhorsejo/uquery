@@ -1,0 +1,260 @@
+.bg-acqua {
+    background-color: aqua;
+}
+
+.bg-aquamarine {
+    background-color: aquamarine;
+}
+
+.bg-orange-green {
+    background: rgb(4, 248, 17);
+}
+
+.bg-yellow {
+    background:yellow;
+}
+
+
+.my-icons {
+    margin-right: 1.7rem;
+}
+
+.my-bottom-nav-bar {
+    display: none;
+}
+
+.icons-text-untop {
+    margin-right: 1rem;
+}
+
+ /* chat */
+ /* .message-modal {
+    display: none; 
+  } */
+
+  .message-list {
+    display: none;
+}
+
+  /* chat ends */
+
+@media (max-width: 480px) {
+    .side-nav-col {
+        display: none;
+    }
+    .right-side-bar {
+        margin-top: 1rem;
+    }
+    .my-bottom-nav-bar {
+        display: inline;
+    }
+
+    /* .message-modal {
+        display: inline; 
+      } */
+      .message-list {
+          display: none;
+      }
+    
+
+/* profile stuff */
+.conact-stuff-in-col-md-4 {
+    display: none;
+}
+.stat {
+    font-size: small;
+}
+/* profile stuff ends */
+
+  }
+
+
+  @media (max-width: 320px) {
+    .side-nav-col {
+        display: none;
+    }
+
+   .right-side-bar {
+        margin-top: 0.5rem;
+    }
+    .my-icons {
+        margin-right: 0.5rem;
+    }  
+    /* profile stuff */
+    .conact-stuff-in-col-md-4 {
+        display: none;
+    }
+
+    /* profile stuff ends */
+   
+  }
+  @media (max-width: 280px) {
+    .side-nav-col {
+        display: none;
+    }
+    .right-side-bar {
+        margin-top: 0.5rem;
+    }
+    .my-icons {
+        margin-right: 0rem;
+    }  
+    .nav-marg-bottom {
+        margin-right: 0;
+    }
+    
+    /* profile stuff */
+    .conact-stuff-in-col-md-4 {
+        display: none;
+    }
+
+    /* profile stuff ends */
+    
+  }
+
+
+  @media (max-width: 540px) {
+    .side-nav-col {
+        display: none;
+    }
+    .right-side-bar {
+        margin-top: 0.5rem;
+    }  
+    
+    .my-bottom-nav-bar {
+        display: inline;        
+    }
+
+    .message-list {
+        display: none;
+    }
+
+    /* .message-modal {
+        display: inline;        
+    } */
+    /* profile stuff */
+    .conact-stuff-in-col-md-4 {
+        display: none;
+    }
+
+    /* profile stuff ends */
+  }
+
+  /* profile */
+
+
+  /* .fb-profile {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('http://lorempixel.com/850/280/nightlife/5/');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+} */
+
+.fb-profile .fb-image-lg{
+    z-index: 0;
+    width: 100%;  
+    margin-bottom: 10px;
+}
+
+.fb-image-profile
+{
+    margin: -90px 10px 0px 20px;
+    z-index: 9;
+    width: 20%; 
+}
+
+.fb-profile-text {
+    /* margin: 0px 0px 0px 0px; */
+    font-weight: 300;
+}
+
+/* @media (max-width:360px)
+{
+    
+.fb-profile-text{
+    font-weight: 400;
+    font-size:30px;
+}
+
+.fb-image-profile
+{
+    margin: -45px 10px 0px 25px;
+    z-index: 9;
+    width: 50%;
+    height: 50%; 
+}
+} */
+
+@media (max-width:768px) {
+    
+.fb-profile-text {
+    font-weight: 400;
+    font-size:18px;
+}
+.fb-profile-sub-text{
+    /* font-weight: 500; */
+    font-size:16px;
+}
+.fb-image-profile
+{
+    margin: -45px 10px 0px 25px;
+    z-index: 9;
+    width: 20%; 
+}
+
+.fb-image-lg
+{
+    /* margin: -45px 10px 0px 25px; */
+    /* z-index: 9; */
+    height: 200px;
+    width: 100%;
+}
+
+}
+
+  /* profile ends */
+
+/* search chat */
+  .vertical-center {
+    /* min-height: 100%;   */
+    /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; 
+    /* These two lines are counted as one :-)       */
+  
+    display: flex;
+    align-items: center;
+  }
+
+
+ form .inner-form {
+    width: 100%;
+    margin-bottom: 17px;
+  }
+
+  form .inner-form .input-field {
+    width: 100%;
+    position: relative;
+  }
+
+  form .inner-form .input-field .btn-search {
+    width: 70px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    align-items: center;
+  }
+
+ /*search chat ends  */

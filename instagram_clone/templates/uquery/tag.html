@@ -1,0 +1,140 @@
+{% extends 'components/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block title %}Uquery-- Find Answers {% endblock title %}
+
+{% block banner %}
+<!-- Banner starts -->
+   <div class="p-2 bg-primary text-light shadow-sm"><!-- card ask question start-->
+      <div class="media"><!-- media ask question starts-->
+        <h1 class="mx-auto">{{tag.title|upper}}</h1>
+          </div><!-- media ask question ends-->
+      </div><!-- card ask question ends-->
+            <!-- Banner startsends -->
+{% endblock banner %}
+
+
+
+
+{% block content %}
+
+{% include "components/left_nav_bar.html" %}
+<div class="col-md-6">
+            <!-- item 1 -->
+         {% for post in posts %}
+          
+           
+            <!-- item 1 -->
+                
+            
+            <div class="card rounded py-4 px-3"><!--card start -->
+            <div class="media"><!--media start -->
+                <!--<img src="{{ post_item.content.url }}" class="mr-3 rounded-circle" alt="..." style="width: 55px; height: 55px;">-->
+                
+                 <figure class="">
+                  {% if post.user.profile.picture %}
+                    <img src="{{ post.user.profile.picture.url }}" alt="dp" class="mr-3 rounded-circle" style="width: 55px; height:55px;">
+                  {% else %}
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="dp" class="mr-3 rounded-circle" style="width: 55px; height:55px;">
+                  {% endif %}
+                  </figure>
+                  
+                <div class="media-body">
+                  <span class="text-muted" style="font-size: 1em; font-weight: 500;">
+                  
+                  {% if post.user.profile.first_name %}
+                    <span class=""> <a href="{% url 'profile' post.user %}"><span class="">{{ post.user.profile.first_name|capfirst }} {{ post.user.profile.last_name|capfirst }}</span> </a></span>
+                    {% else %}
+                      <span class=""><a href="{% url 'profile' post.user %}">?</a></span>
+                    {% endif %}
+                  </span>  <span class="text-muted">@{{ post.user.username|capfirst }}</span> <span class="float-right"><a class="nav-link text-muted" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                  </svg> </a>
+                <div class="dropdown-menu dropdown-menu-right shadow">
+
+                  {% if user.is_authenticated or user.is_superuser %}           
+                                 
+                  <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                  </svg> Edit Question</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"><span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                  </svg></span> Trash</a>
+                  <div class="dropdown-divider"></div>              
+
+                  <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                  </svg> Answer</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                    <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                  </svg> Share</a>
+                  {% else %}
+                
+                  <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                    <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                  </svg> Share</a>
+                     {% endif %}
+                </div> </span> 
+                  <div class="m-0"></div>
+                   
+                  <small class="mt-0">{{post.posted|naturaltime}}</small>
+                </div>
+              </div><!--media ends -->
+              <div class="mt-5"></div>
+               <div class="card-body">
+           
+              <!-- -->
+                 {% if post.content.first.file.name|slice:"-3:" == 'jpg' or post.content.first.file.name|slice:"-3:" == 'png' %}
+                        <figure class="">
+                        <a href="{{ post.get_absolute_url }}">
+                            <img src="{{ post.content.first.file.url }}" alt="image" class="card-img-top">
+                        </a>
+                        </figure>
+                    <!-- {% else %}
+                        <a href="{{ post_item.get_absolute_url }}">
+                        <video width="1080" controls="controls" preload="metadata">
+                            <source src="{{ post_item.content.first.file.url }}#t=0.5" type="video/mp4">        
+                        </video>      
+                        </a> -->
+                    {% endif %}
+
+              <!-- -->
+               </div>
+              <div class="mt-3"></div>             
+             <a href="{{ post.get_absolute_url }}" class="text-muted"> {{ post.caption|truncatewords:35 }}</a>
+             
+                 
+             
+              <div class="d-inline text-center">
+              <span style="font-size: 0.7em;" class="icons-text-untop text-muted">{{post.likes}} Likes</span>   <a href="#" class="icons-text-untop text-muted" style="font-size: 0.7em;">25 Answers</a>  <a href="" class="icons-text-untop text-muted" style="font-size: 0.7em;">51 Shares</a>
+            </div>
+              <hr>
+              <div class="d-inline text-center">
+             <a href="{% url 'postlike' post.id %}" class="text-muted"> <span class="my-icons"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+              </svg> <span class="px-1"> Like</span></span></a>
+              
+               <a href="#" class="text-muted"><span class="my-icons"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square" viewBox="0 0 16 16">
+                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+              </svg> <span class="px-1">Answer</span></span></a>
+
+             <a href="#" class="text-muted"> <span class="my-icons"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+              </svg> <span class="px-1">Share</span></span></a>
+
+            </div>
+              <hr>
+            </div><!--card ends -->
+            <!-- item 1 ends -->
+             <div class="m-3"></div>
+               
+             {% endfor %}
+            <!-- item 1 ends -->
+        </div>
+        {% include "components/right_side_bar.html" %}
+        
+        {% endblock content %}

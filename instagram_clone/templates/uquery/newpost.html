@@ -1,0 +1,46 @@
+{% extends 'components/base.html' %}
+{% load static %}
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
+{% block title %}Uquery-- Ask Question {% endblock title %}
+
+{% block content %}
+
+
+
+<div class="col-md-2"></div>
+
+<div class="col-md-8 mx-auto">
+<div class="m-4"></div>
+<div class="card p-3">
+    <form method="POST" action="" enctype="multipart/form-data" role="form">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">What is your Question?</legend>
+            
+            <div class="mb-3">
+             {{ form.content }}
+            </div>
+
+            <div class="mb-3">
+            <label>Content* </label>
+           {{form.caption}}
+            </div>
+            
+
+            <div class="mb-3">
+           
+             <label class="">Category* (add Categories, separeted by commas)</label>
+             <div class="m-1"></div>
+            {{form.tags}}
+            
+            </div>
+
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-primary rounded-pill">Post Question</button>
+        </div>
+    </form>
+</div>
+</div>
+<div class="col-md-2"></div>
+ {% endblock content %}

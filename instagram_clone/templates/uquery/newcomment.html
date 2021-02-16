@@ -1,0 +1,36 @@
+{% extends 'components/base.html' %}
+{% load static %}
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
+{% block title %}Uquery-- Answer {% endblock title %}
+
+{% block content %}
+
+
+
+<div class="col-md-2"></div>
+
+<div class="col-md-8 mx-auto">
+<div class="m-4"></div>
+<div class="card p-3">
+    <form method="POST" action="" enctype="multipart/form-data" role="form">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Answer Question</legend>
+            
+            <div class="mb-3">
+            <label>Content* </label>
+           {{form.body}}
+            </div>
+            
+
+            
+
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-primary rounded-pill">Post Answer</button>
+        </div>
+    </form>
+</div>
+</div>
+<div class="col-md-2"></div>
+ {% endblock content %}
