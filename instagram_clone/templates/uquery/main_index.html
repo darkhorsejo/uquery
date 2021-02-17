@@ -58,9 +58,9 @@
                 
                  <figure class="">
                   {% if post_item.user.profile.picture %}
-                    <img src="{{ post_item.user.profile.picture.url }}" alt="Placeholder image" class="mr-3 rounded-circle" alt="..." style="width: 55px; height:55px;">
+                    <img src="{{ post_item.user.profile.picture.url }}" alt="{{user}}" class="mr-3 rounded-circle" style="width: 55px; height:55px;">
                   {% else %}
-                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="dp" class="mr-3 rounded-circle" alt="..." style="width: 55px; height:55px;">
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="dp" class="mr-3 rounded-circle" style="width: 55px; height:55px;">
                   {% endif %}
                   </figure>
                   
