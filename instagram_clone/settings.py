@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'wkpwid&=r9wp2nl9jyr_%66zjgq4fku9*%g%^%-4iijga+t2lg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['uquery.herokuapp.com', '127.0.0.1']
 

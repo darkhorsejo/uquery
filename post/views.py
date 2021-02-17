@@ -23,30 +23,18 @@ from authy.models import Profile
 def mainindex(request):
 	user = request.user
 	posts = Post.objects.all()
-	paginator = Paginator(posts, 15)
-	page = request.GET.get('page')
-	try:
-		post_list = paginator.page(page)
-	except PageNotAnInteger:
-		# If page is not an integer deliver the first page
-		post_list = paginator.page(1)
-	except EmptyPage:
-		# If page is out of range deliver last page of results
-		post_list = paginator.page(paginator.num_pages)
-
-
+	
 	# group_ids = []
-
 	for post in posts:
-		post_items = Post.objects.all().order_by('-posted')	
+		post_items = Post.objects.all()
+		
+		
+	post_items = Post.objects.all().order_by('-posted')	
 
 	template = loader.get_template('uquery/main_index.html')
 
 	context = {
-		'post_items': post_items,
-		'page': page,
-		'post_list': post_list,	
-
+		'post_items': post_items,		
 	}
 
 	return HttpResponse(template.render(context, request))
