@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -89,14 +88,14 @@ WSGI_APPLICATION = 'instagram_clone.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
-
+import dj_database_url
 
 DATABASES['default'] = dj_database_url.config(default='postgres://wmdhefivvlllye:a14b28a359ba7a0c4fb91546c63efbb62c0fe4c6ebee460bd06b1f5349fbb216@ec2-35-174-118-71.compute-1.amazonaws.com:5432/d2k1elh2f2kr8p')
 
