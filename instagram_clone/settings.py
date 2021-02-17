@@ -88,17 +88,23 @@ WSGI_APPLICATION = 'instagram_clone.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'uquerydb',
+        'USER': 'wmdhefivvlllye',
+        'PASSWORD': 'a14b28a359ba7a0c4fb91546c63efbb62c0fe4c6ebee460bd06b1f5349fbb216',
+        'HOST': 'ec2-35-174-118-71.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
-
-import dj_database_url
-
-DATABASES['default'] = dj_database_url.config(default='postgres://wmdhefivvlllye:a14b28a359ba7a0c4fb91546c63efbb62c0fe4c6ebee460bd06b1f5349fbb216@ec2-35-174-118-71.compute-1.amazonaws.com:5432/d2k1elh2f2kr8p')
-
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
